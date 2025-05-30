@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<h1>お問い合わせフォーム</h1>
+
+	<form th:action="@{/confirm}" method="post" th:object="${form}">
+
+		<table>
+			
+			
+			
+			<tr><label>
+					<td>
+
+						お名前
+					</td>
+					<td>
+						<input type="text" id="name" name="name" th:value="*{name}">
+					</td>
+			</tr></label>
+			<tr>
+				<td colspan="3" >
+					<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red;"></div>
+				</td>
+			</tr>
+			
+			
+			
+			
+			
+			
+			
+			<tr><label>
+					<td>
+
+						メールアドレス
+					</td>
+					<td>
+						<input type="text" id="email" name="email" th:value="*{email}">
+					</td>
+			</tr></label>
+			<tr>
+				<td colspan="3" >
+					<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></div>
+				</td>
+			</tr>
+			
+			
+						<tr><label>
+					<td>
+
+						お問い合わせ内容
+					</td>
+					<td>
+						<textarea id="message" name="message" th:value="*{message}" cols="30"
+							rows="10"></textarea>
+					</td>
+			</tr></label>
+			<tr>
+				<td colspan="3" >
+					<div th:if="${#fields.hasErrors('message')}" th:errors="*{message}" style="color: red;"></div>
+				</td>
+			</tr>
+			
+			
+
+				<td>
+					<button type="submit">送信</button>
+				</td>
+			</tr>
+
+
+		</table>
+	</form>
+
+</body>
+
+</html>
